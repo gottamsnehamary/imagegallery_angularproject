@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<button class="button button1" [class.active]="filterBy=='all'" (click)="filterBy='all'">ALL</button>
+
+<button class="button button2" [class.active]="filterBy=='roads'" (click)="filterBy='roads'">ROADS</button>
+
+<button class="button button3" [class.active]="filterBy=='nature'" (click)="filterBy='nature'">NATURE</button>
+
+<button class="button button4" [class.active]="filterBy=='beach'" (click)="filterBy='beach'">BEACHES</button>
+
+<div class="row">
+  <div class="column">
+    <li *ngFor="let image of ( visibleImages | imageFilter :filterBy)">
+      <a><img src="{{ image.url}}" class="tn" width="335" height="280"></a>
+    </li>
+  </div>
+</div>
